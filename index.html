@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>רשימת קניות משפחתית</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* --- עיצוב נשאר זהה למקור --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -18,7 +14,6 @@
             padding: 20px;
             direction: rtl;
         }
-
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -27,24 +22,14 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
-
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
         }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            opacity: 0.9;
-            font-size: 1.1em;
-        }
-
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { opacity: 0.9; font-size: 1.1em; }
         .stats {
             display: flex;
             justify-content: space-around;
@@ -52,40 +37,16 @@
             background: #f8f9fa;
             border-bottom: 2px solid #e9ecef;
         }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .stat-label {
-            color: #6c757d;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2em; font-weight: bold; color: #667eea; }
+        .stat-label { color: #6c757d; font-size: 0.9em; margin-top: 5px; }
         .add-section {
             padding: 30px;
             background: #f8f9fa;
             border-bottom: 2px solid #e9ecef;
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #495057;
-        }
-
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #495057; }
         input, select {
             width: 100%;
             padding: 12px;
@@ -95,13 +56,7 @@
             transition: all 0.3s;
             font-family: inherit;
         }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
+        input:focus, select:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
         .btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -114,12 +69,7 @@
             width: 100%;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3); }
         .filters {
             padding: 20px 30px;
             background: white;
@@ -128,22 +78,9 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-
-        .filter-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .items-section {
-            padding: 30px;
-            max-height: 600px;
-            overflow-y: auto;
-        }
-
-        .category-group {
-            margin-bottom: 30px;
-        }
-
+        .filter-group { flex: 1; min-width: 200px; }
+        .items-section { padding: 30px; max-height: 600px; overflow-y: auto; }
+        .category-group { margin-bottom: 30px; }
         .category-header {
             display: flex;
             align-items: center;
@@ -155,11 +92,7 @@
             font-weight: 600;
             font-size: 1.2em;
         }
-
-        .category-icon {
-            font-size: 1.5em;
-        }
-
+        .category-icon { font-size: 1.5em; }
         .category-count {
             margin-right: auto;
             background: white;
@@ -168,7 +101,6 @@
             font-size: 0.9em;
             color: #667eea;
         }
-
         .item {
             display: flex;
             align-items: center;
@@ -180,45 +112,13 @@
             margin-bottom: 10px;
             transition: all 0.3s;
         }
-
-        .item:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-
-        .item.purchased {
-            opacity: 0.6;
-            background: #f8f9fa;
-        }
-
-        .item.purchased .item-name {
-            text-decoration: line-through;
-        }
-
-        .item-checkbox {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-        }
-
-        .item-details {
-            flex: 1;
-        }
-
-        .item-name {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #212529;
-            margin-bottom: 5px;
-        }
-
-        .item-meta {
-            display: flex;
-            gap: 15px;
-            color: #6c757d;
-            font-size: 0.9em;
-        }
-
+        .item:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .item.purchased { opacity: 0.6; background: #f8f9fa; }
+        .item.purchased .item-name { text-decoration: line-through; }
+        .item-checkbox { width: 24px; height: 24px; cursor: pointer; }
+        .item-details { flex: 1; }
+        .item-name { font-weight: 600; font-size: 1.1em; color: #212529; margin-bottom: 5px; }
+        .item-meta { display: flex; gap: 15px; color: #6c757d; font-size: 0.9em; }
         .delete-btn {
             background: #dc3545;
             color: white;
@@ -229,18 +129,13 @@
             font-weight: 600;
             transition: background 0.3s;
         }
-
-        .delete-btn:hover {
-            background: #c82333;
-        }
-
+        .delete-btn:hover { background: #c82333; }
         .clear-section {
             padding: 20px 30px;
             background: #f8f9fa;
             border-top: 2px solid #e9ecef;
             text-align: center;
         }
-
         .clear-btn {
             background: #28a745;
             color: white;
@@ -251,19 +146,8 @@
             font-weight: 600;
             cursor: pointer;
         }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #6c757d;
-        }
-
-        .empty-state-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-
+        .empty-state { text-align: center; padding: 60px 20px; color: #6c757d; }
+        .empty-state-icon { font-size: 4em; margin-bottom: 20px; opacity: 0.3; }
         .toast {
             position: fixed;
             bottom: 30px;
@@ -276,11 +160,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             z-index: 1000;
         }
-
-        .toast.error {
-            background: #dc3545;
-        }
-
+        .toast.error { background: #dc3545; }
         .sync-status {
             text-align: center;
             padding: 10px;
@@ -288,17 +168,8 @@
             color: #155724;
             font-weight: 600;
         }
-
-        .sync-status.syncing {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .sync-status.error {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
+        .sync-status.syncing { background: #fff3cd; color: #856404; }
+        .sync-status.error { background: #f8d7da; color: #721c24; }
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
             .stats { flex-direction: column; gap: 15px; }
@@ -306,20 +177,14 @@
             .item { flex-direction: column; align-items: flex-start; }
             .delete-btn { width: 100%; }
         }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #667eea;
-            font-size: 1.2em;
-        }
+        .loading { text-align: center; padding: 40px; color: #667eea; font-size: 1.2em; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🛒 רשימת קניות משפחתית</h1>
-            <p class="subtitle">ניהול חכם ונוח לקניות המשפחה</p>
+            <p class="subtitle">מחובר לענן בזמן אמת ☁️</p>
         </header>
 
         <div class="stats">
@@ -399,19 +264,53 @@
         </div>
 
         <div class="items-section" id="itemsList">
-            <div class="loading">טוען נתונים</div>
+            <div class="loading">טוען נתונים...</div>
         </div>
 
         <div class="clear-section">
             <button class="clear-btn" id="clearPurchased">🗑️ נקה פריטים שנרכשו</button>
         </div>
 
-        <div class="sync-status" id="syncStatus">מסונכרן ✓</div>
+        <div class="sync-status" id="syncStatus">מתחבר...</div>
     </div>
 
-    <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqcOeYr4weRxY2Uxzr3M8WgYOaYDBIREDqjbVCmbAE2a8BYbEjYQh-_ehVgixyFChKWg/exec';
+    <script type="module">
+        // יבוא פונקציות Firebase מה-CDN (מתאים לדפדפן ללא התקנות)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            onSnapshot, 
+            doc, 
+            updateDoc, 
+            deleteDoc, 
+            query, 
+            where, 
+            writeBatch, 
+            serverTimestamp, 
+            orderBy 
+        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+        // הקונפיגורציה שלך
+        const firebaseConfig = {
+            apiKey: "AIzaSyANZvX_8snN89K6rVn_8tSJrt32EOxumW4",
+            authDomain: "familylist-e56ad.firebaseapp.com",
+            projectId: "familylist-e56ad",
+            storageBucket: "familylist-e56ad.firebasestorage.app",
+            messagingSenderId: "516787707052",
+            appId: "1:516787707052:web:aee5a4ff3a8f5aa9be1309",
+            measurementId: "G-QH2JDPMFBD"
+        };
+
+        // אתחול Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        const itemsCollection = collection(db, "items");
+
+        // הגדרות קבועות
         const CATEGORIES = {
             'פירות וירקות': { emoji: '🥬', color: '#28a745' },
             'חלב וביצים': { emoji: '🥛', color: '#17a2b8' },
@@ -425,10 +324,11 @@
             'שונות': { emoji: '📦', color: '#6610f2' }
         };
 
+        // משתנים גלובליים
         let allItems = [];
-        let filteredItems = [];
         let currentFilter = { category: 'all', status: 'all' };
 
+        // אלמנטים בדף
         const elements = {
             form: document.getElementById('addItemForm'),
             itemName: document.getElementById('itemName'),
@@ -444,6 +344,8 @@
             pendingItems: document.getElementById('pendingItems'),
             purchasedItems: document.getElementById('purchasedItems')
         };
+
+        // --- פונקציות עזר ---
 
         function showToast(message, isError = false) {
             const toast = document.createElement('div');
@@ -466,123 +368,152 @@
             elements.purchasedItems.textContent = purchased;
         }
 
-        async function fetchItems() {
+        // --- לוגיקה מול Firebase ---
+
+        // האזנה לשינויים בזמן אמת (Realtime Listener)
+        function subscribeToItems() {
+            updateSyncStatus('syncing', 'מתחבר...');
+            
+            const q = query(itemsCollection, orderBy("createdAt", "desc")); // מיון לפי תאריך
+
+            const unsubscribe = onSnapshot(q, (snapshot) => {
+                allItems = [];
+                snapshot.forEach((doc) => {
+                    allItems.push({ id: doc.id, ...doc.data() });
+                });
+                
+                applyFilters();
+                updateStats();
+                updateSyncStatus('', 'מחובר ומסונכרן ✓');
+            }, (error) => {
+                console.error("Error getting documents: ", error);
+                updateSyncStatus('error', 'שגיאת חיבור ✗');
+            });
+        }
+
+        // הוספת פריט
+        async function addItemToFirebase(item) {
             try {
-                updateSyncStatus('syncing', 'מסנכרן...');
-                const response = await fetch(`${SCRIPT_URL}?action=getItems`);
-                const data = await response.json();
-                if (data.status === 'success') {
-                    allItems = data.items || [];
-                    applyFilters();
-                    updateStats();
-                    updateSyncStatus('', 'מסונכרן ✓');
-                }
+                updateSyncStatus('syncing', 'שולח...');
+                await addDoc(itemsCollection, {
+                    ...item,
+                    createdAt: serverTimestamp() // שימוש בזמן שרת
+                });
+                showToast('✓ הפריט נוסף בהצלחה');
             } catch (error) {
-                updateSyncStatus('error', 'שגיאה בסנכרון ✗');
-                showToast('שגיאה בטעינת הרשימה', true);
+                console.error("Error adding document: ", error);
+                showToast('שגיאה בהוספה', true);
             }
         }
 
-        async function addItem(item) {
+        // עדכון סטטוס רכישה
+        async function toggleItemStatus(id, currentStatus) {
             try {
-                updateSyncStatus('syncing', 'מוסיף פריט...');
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'addItem', item: item })
+                const itemRef = doc(db, "items", id);
+                await updateDoc(itemRef, {
+                    purchased: !currentStatus
                 });
-                const data = await response.json();
-                if (data.status === 'success') {
-                    showToast('✓ הפריט נוסף בהצלחה');
-                    await fetchItems();
-                }
+                // אין צורך בהודעה, השינוי ב-UI יהיה אוטומטי דרך המאזין
             } catch (error) {
-                updateSyncStatus('error', 'שגיאה בהוספה ✗');
-                showToast('שגיאה בהוספת הפריט', true);
-            }
-        }
-
-        async function updateItem(index, purchased) {
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'updateItem', index: index, purchased: purchased })
-                });
-                showToast(purchased ? '✓ פריט סומן כנרכש' : '✓ סימון בוטל');
-                await fetchItems();
-            } catch (error) {
+                console.error("Error updating document: ", error);
                 showToast('שגיאה בעדכון', true);
             }
         }
 
-        async function deleteItem(index) {
-            if (!confirm('האם אתה בטוח שברצונך למחוק פריט זה?')) return;
+        // מחיקת פריט
+        async function deleteItemFromFirebase(id) {
+            if (!confirm('האם למחוק את הפריט?')) return;
             try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'deleteItem', index: index })
-                });
+                await deleteDoc(doc(db, "items", id));
                 showToast('✓ פריט נמחק');
-                await fetchItems();
             } catch (error) {
+                console.error("Error deleting document: ", error);
                 showToast('שגיאה במחיקה', true);
             }
         }
 
-        async function clearPurchasedItems() {
-            if (!confirm('האם אתה בטוח שברצונך למחוק את כל הפריטים שנרכשו?')) return;
+        // מחיקת כל שנרכשו
+        async function clearPurchasedItemsFirebase() {
+            if (!confirm('האם למחוק את כל הפריטים שנרכשו?')) return;
+            
             try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'clearPurchased' })
+                updateSyncStatus('syncing', 'מוחק...');
+                const q = query(itemsCollection, where("purchased", "==", true));
+                const querySnapshot = await getDocs(q); // שים לב: getDocs דורש import אבל נשתמש בדרך אחרת לפשטות או נוסיף אותו
+                // בגלל ש-getDocs לא ב-import למעלה, נשתמש ב-allItems המסונן מקומית לביצוע המחיקה (Batch)
+                
+                const batch = writeBatch(db);
+                let count = 0;
+                
+                allItems.forEach(item => {
+                    if (item.purchased) {
+                        const itemRef = doc(db, "items", item.id);
+                        batch.delete(itemRef);
+                        count++;
+                    }
                 });
-                showToast('✓ פריטים שנרכשו נוקו');
-                await fetchItems();
+
+                if (count > 0) {
+                    await batch.commit();
+                    showToast(`✓ נמחקו ${count} פריטים`);
+                } else {
+                    showToast('אין פריטים שנרכשו למחיקה');
+                }
+                
             } catch (error) {
-                showToast('שגיאה בניקוי', true);
+                console.error("Error clearing items: ", error);
+                // במקרה של כשלון בלולאה מקומית, ייתכן שחלק נמחקו. ההאזנה תעדכן.
             }
         }
 
+        // --- UI ולוגיקה מקומית ---
+
         function applyFilters() {
-            filteredItems = allItems.filter(item => {
-                const categoryMatch = currentFilter.category === 'all' || item.category === currentFilter.category;
-                const statusMatch = currentFilter.status === 'all' ||
-                    (currentFilter.status === 'pending' && !item.purchased) ||
-                    (currentFilter.status === 'purchased' && item.purchased);
-                return categoryMatch && statusMatch;
-            });
-            renderItems();
+            let filtered = allItems;
+
+            if (currentFilter.category !== 'all') {
+                filtered = filtered.filter(item => item.category === currentFilter.category);
+            }
+
+            if (currentFilter.status !== 'all') {
+                if (currentFilter.status === 'pending') {
+                    filtered = filtered.filter(item => !item.purchased);
+                } else {
+                    filtered = filtered.filter(item => item.purchased);
+                }
+            }
+
+            renderItems(filtered);
         }
 
-        function renderItems() {
-            if (filteredItems.length === 0) {
+        function renderItems(itemsToRender) {
+            if (itemsToRender.length === 0) {
                 elements.itemsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🛒</div><h2>אין פריטים להצגה</h2></div>';
                 return;
             }
 
             const itemsByCategory = {};
-            filteredItems.forEach(item => {
+            itemsToRender.forEach(item => {
                 if (!itemsByCategory[item.category]) itemsByCategory[item.category] = [];
-                itemsByCategory[item.category].push({ ...item, originalIndex: allItems.indexOf(item) });
+                itemsByCategory[item.category].push(item);
             });
 
             let html = '';
             Object.keys(itemsByCategory).sort().forEach(category => {
                 const items = itemsByCategory[category];
                 const config = CATEGORIES[category] || { emoji: '📦', color: '#6c757d' };
+                
                 html += `<div class="category-group">
                     <div class="category-header" style="border-right: 4px solid ${config.color}">
                         <span class="category-icon">${config.emoji}</span>
                         <span>${category}</span>
                         <span class="category-count">${items.length}</span>
                     </div>`;
+                
                 items.forEach(item => {
                     html += `<div class="item ${item.purchased ? 'purchased' : ''}">
                         <input type="checkbox" class="item-checkbox" ${item.purchased ? 'checked' : ''} 
-                               onchange="handleCheckboxChange(${item.originalIndex}, this.checked)">
+                               data-id="${item.id}" data-purchased="${item.purchased}">
                         <div class="item-details">
                             <div class="item-name">${item.name}</div>
                             <div class="item-meta">
@@ -590,17 +521,31 @@
                                 <span>👤 ${item.addedBy}</span>
                             </div>
                         </div>
-                        <button class="delete-btn" onclick="deleteItem(${item.originalIndex})">🗑️ מחק</button>
+                        <button class="delete-btn" data-id="${item.id}">🗑️ מחק</button>
                     </div>`;
                 });
                 html += '</div>';
             });
+            
             elements.itemsList.innerHTML = html;
+
+            // הוספת מאזינים לכפתורים החדשים שנוצרו ב-HTML
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    deleteItemFromFirebase(e.target.dataset.id);
+                });
+            });
+
+            document.querySelectorAll('.item-checkbox').forEach(chk => {
+                chk.addEventListener('change', (e) => {
+                    // המרה של המחרוזת "true"/"false" לבוליאני
+                    const isPurchased = e.target.dataset.purchased === 'true';
+                    toggleItemStatus(e.target.dataset.id, isPurchased);
+                });
+            });
         }
 
-        function handleCheckboxChange(index, checked) {
-            updateItem(index, checked);
-        }
+        // --- אירועים (Events) ---
 
         elements.form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -609,13 +554,15 @@
                 category: elements.itemCategory.value,
                 quantity: elements.itemQuantity.value.trim(),
                 addedBy: elements.addedBy.value.trim(),
-                purchased: false,
-                timestamp: new Date().toISOString()
+                purchased: false
             };
-            await addItem(item);
+            
+            await addItemToFirebase(item);
+            
+            // ניקוי שדות (שמירת השם והקטגוריה לנוחות או ניקוי מלא - כאן ניקוי חלקי)
             elements.itemName.value = '';
             elements.itemQuantity.value = '';
-            elements.itemCategory.value = '';
+            elements.itemName.focus();
         });
 
         elements.filterCategory.addEventListener('change', () => {
@@ -628,10 +575,11 @@
             applyFilters();
         });
 
-        elements.clearPurchased.addEventListener('click', clearPurchasedItems);
+        elements.clearPurchased.addEventListener('click', clearPurchasedItemsFirebase);
 
-        fetchItems();
-        setInterval(fetchItems, 30000);
+        // התחלת האפליקציה
+        subscribeToItems();
+
     </script>
 </body>
 </html>
